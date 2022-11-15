@@ -1,5 +1,5 @@
-# Sebastian Gransicki S22990
-Przed uruchomieniem dodać ````127.0.0.1 lab6zad3.com```` po wykonaniu polecenia ````sudo nano /etc/hosts````
+# Łukasz Angielski s22988
+Przed uruchomieniem dodać `127.0.0.1 lab6zad3.com` po wykonaniu polecenia `sudo nano /etc/hosts`
 
 Uruchamianie kontenerów:
 ````
@@ -13,11 +13,10 @@ docker container run --rm -d --name express --label traefik.enable=true --label 
 docker container run --rm -d --name flask --label traefik.enable=true --label traefik.port=9000 --label traefik.priority=10 --label traefik.http.routers.flask.rule="Host(\"lab6zad3.com\") && PathPrefix(\"/cars\")" z3flask
 
 docker run -d --name traefik -p 8080:8080 -p 80:80 -v /var/run/docker.sock:/var/run/docker.sock traefik:latest --api.insecure=true --providers.docker
-````
+`
 Wywoływanie zapytań:
 
-````lab6zad3.com/cars```` - wyświetlenie wszystkich aut
+`lab6zad3.com/cars` - wyświetlenie wszystkich aut
 
-````lab6zad3.com/cars?year=2011```` - wyświetlenie aut z rokiem 2011
-
-````lab6zad3.com/addCar```` - dodanie nowego samochodu do tablicy w postaci
+`lab6zad3.com/cars?year=2011` - wyświetlenie aut z rokiem 2011
+`lab6zad3.com/addCar` - dodanie nowego samochodu do tablicy w postaci
