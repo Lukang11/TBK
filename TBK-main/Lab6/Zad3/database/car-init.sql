@@ -7,6 +7,6 @@ create table Car
 );
 
 insert into Car (model, year, details)
-values ('BMW E36', 1996, 'coupe'),
-       ('Ford Focus MK3', 2011, 'hatchback'),
-       ('Audi A8', 2018, 'kombi');
+values ('Mercedes clk', 2009, 'coupe'),
+       ('BMW serie 3', 2011, 'hatchback'),
+       ('Audi A7', 2018, 'Offroad');
