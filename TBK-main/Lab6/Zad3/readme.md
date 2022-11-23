@@ -6,7 +6,7 @@ Uruchamianie kontenerów:
 docker build -t z3flask flask/.
 docker build -t z3express express/.
 
-docker container run --rm -d --name postgres --label traefik.port=5432 -v "/mnt/c/Users/sebastian/Desktop/Szkola/TBK/6/zad3/database":/docker-entrypoint-initdb.d -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=l6z3 postgres:11.5-alpine
+docker container run --rm -d --name postgres --label traefik.port=5432 -v "/mnt/c/Users/luk/Desktop/Szkola/TBK/6/zad3/database":/docker-entrypoint-initdb.d -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=l6z3 postgres:11.5-alpine
 
 docker container run --rm -d --name express --label traefik.enable=true --label traefik.port=3000 --label traefik.priority=1 --label traefik.http.routers.express.rule="Host(\"lab6zad3.com\")" z3express
 
