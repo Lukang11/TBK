@@ -1,0 +1,33 @@
+version: '3.9'
+services:
+  db:
+    image: postgres
+    container_name: db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+
+  express:
+    build: 
+      context: ./express
+      network: host
+    container_name: express
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      
+  flask:
+    build: 
+      context: ./flask
+      network: host
+    container_name: flask
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
