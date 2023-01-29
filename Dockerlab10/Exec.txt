@@ -1,0 +1,2 @@
+docker build -t memory-hog . //Zbuduj obraz
+docker run -e MAX_ALLOCATION_MB=4096 -e LOOT_ALLOCATION_MB=512 -e LOOP_INTERVAL_MS=2000 memory-hog // uruchamianie contenera
