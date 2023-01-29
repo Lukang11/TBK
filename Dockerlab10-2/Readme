@@ -1,0 +1,4 @@
+Polecenia aby wdrożyć stos dla dwóch aplikacji
+
+docker stack deploy -c api.yml stack1
+docker stack deploy -c update.yml stack2

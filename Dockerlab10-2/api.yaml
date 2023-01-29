@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: image-gallery-api
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: image-gallery-api
+  template:
+    metadata:
+      labels:
+        app: image-gallery-api
+    spec:
+      containers:
+        - name: image-gallery-api
+          image: diamol/ch04-image-of-the-day
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          ports:
+            - containerPort: 80
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  revisionHistoryLimit: 3
